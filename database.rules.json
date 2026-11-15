@@ -1,0 +1,83 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+
+    "admins": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": false
+      }
+    },
+
+    "orders": {
+      ".read": "auth != null && root.child('admins').child(auth.uid).val() === true",
+      ".indexOn": ["createdAt", "stage"],
+
+      "$orderId": {
+        ".read": true,
+
+        ".write": "(!data.exists() && newData.hasChildren(['trackingId', 'clientName', 'whatsapp', 'packageName', 'currency', 'totalAmount', 'advanceAmount', 'stage', 'createdAt']) && newData.child('stage').val() === 1 && newData.child('advancePaid').val() === false && newData.child('finalPaid').val() === false && newData.child('stagingUrl').val() === '' && newData.child('adminNote').val() === '') || (auth != null && root.child('admins').child(auth.uid).val() === true)",
+
+        ".validate": "$orderId.matches(/^MP-[0-9]{4,8}$/) && newData.hasChildren(['trackingId', 'clientName', 'whatsapp', 'packageName', 'currency', 'totalAmount', 'advanceAmount', 'stage', 'createdAt'])",
+
+        "trackingId": {
+          ".validate": "newData.isString() && newData.val() === $orderId"
+        },
+        "clientName": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 100"
+        },
+        "whatsapp": {
+          ".validate": "newData.isString() && newData.val().length >= 7 && newData.val().length <= 30 && newData.val().matches(/^[0-9+() -]+$/)"
+        },
+        "packageName": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 60"
+        },
+        "addons": {
+          ".validate": "newData.isString() && newData.val().length <= 400"
+        },
+        "projectNotes": {
+          ".validate": "newData.isString() && newData.val().length <= 500"
+        },
+        "currency": {
+          ".validate": "newData.isString() && (newData.val() === 'LKR' || newData.val() === 'USD')"
+        },
+        "totalAmount": {
+          ".validate": "newData.isNumber() && newData.val() > 0 && newData.val() <= 100000000"
+        },
+        "advanceAmount": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= newData.parent().child('totalAmount').val()"
+        },
+        "stage": {
+          ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 5 && newData.val() % 1 === 0"
+        },
+        "advancePaid": {
+          ".validate": "newData.isBoolean()"
+        },
+        "finalPaid": {
+          ".validate": "newData.isBoolean()"
+        },
+        "stagingUrl": {
+          ".validate": "newData.isString() && newData.val().length <= 500 && (newData.val() === '' || newData.val().beginsWith('https://'))"
+        },
+        "adminNote": {
+          ".validate": "newData.isString() && newData.val().length <= 1000"
+        },
+        "clientNote": {
+          ".write": "data.parent().exists()",
+          ".validate": "newData.isString() && newData.val().length <= 500"
+        },
+        "createdAt": {
+          ".validate": "newData.isNumber() && (!data.exists() || newData.val() === data.val())"
+        },
+        "updatedAt": {
+          ".validate": "newData.isNumber()"
+        },
+
+        "$other": {
+          ".validate": false
+        }
+      }
+    }
+  }
+}
