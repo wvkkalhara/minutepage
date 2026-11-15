@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="320" height="320">
+  <title>MinutePage</title>
+  <defs>
+    <linearGradient id="mpG" x1="5" y1="29" x2="28" y2="4" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#10B981"/><stop offset="1" stop-color="#2DD4BF"/></linearGradient>
+    <mask id="mpM" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32"><rect width="32" height="32" fill="#fff"/><path d="M16 16.6V9.6M16 16.6l4.6-2.9" fill="none" stroke="#000" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></mask>
+  </defs>
+  <path d="M16 3.5h6.6l6.4 6.4v6.6A13 13 0 1 1 16 3.5z" fill="url(#mpG)" mask="url(#mpM)"/>
+  <path d="M22.6 3.5v4.4a2 2 0 0 0 2 2H29z" fill="#CCFBF1"/>
+</svg>

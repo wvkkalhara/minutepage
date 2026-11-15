@@ -1,11 +1,11 @@
 /* MinutePage service worker
    Strategy: Stale-While-Revalidate for same-origin files and the static CDN assets
-   (Tailwind, Lucide), so repeat visits are instant while a fresh copy is fetched in the background.
+   (fonts are bypassed; styles and icons are now inline), so repeat visits are instant while a fresh copy is fetched in the background.
    Firebase / Google endpoints are NEVER intercepted: they always go straight to the network.
    To ship an update that every visitor gets immediately, bump VERSION. */
 
-const VERSION = "minutepage-v1.0.0";
-const CORE = ["./", "./index.html", "./manifest.json", "./404.html"];
+const VERSION = "minutepage-v3.6.0";
+const CORE = ["./", "./index.html", "./manifest.json", "./404.html", "./assets/brand/logo.svg", "./assets/brand/favicon-48.png"];
 
 // Hosts that must bypass the cache entirely (realtime data, auth, analytics, SDK modules, fonts).
 const BYPASS_HOSTS = [
