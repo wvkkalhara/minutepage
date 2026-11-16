@@ -1166,6 +1166,194 @@ body{font-family:var(--ui);color:#A7B0BE;letter-spacing:-.003em}
 .psel-opt.sep::before{content:"";position:absolute;left:.8rem;right:.8rem;top:-.2rem;height:1px;background:var(--line)}
 .card:has(.psel.open){overflow:visible;z-index:5}
 @media (prefers-reduced-motion:reduce){.psel-list,.psel-chev{transition:none}}
+/* makeover result v2: full concept phone, search illustration, labels under the score rings */
+.mk-phone{width:min(270px,74vw)}
+.mk-phone.concept{gap:.42rem}
+.cp-hero b{font-family:inherit;font-weight:700;letter-spacing:-.01em}
+.cp-tiles span{min-height:46px}
+.cp-list{display:grid;border-radius:.7rem;border:1px solid #E2E8F0;overflow:hidden}
+.cp-list div{display:flex;justify-content:space-between;align-items:center;gap:.5rem;padding:.42rem .55rem;font-size:.58rem;border-top:1px solid #EEF2F6}
+.cp-list div:first-child{border-top:0}
+.cp-list b{font-weight:700;color:#0B1220}
+.cp-list span{flex:none;padding:.08rem .4rem;border-radius:999px;background:#F1F5F9;background:color-mix(in srgb,var(--c2) 18%,#fff);color:#334155;font-weight:600;font-size:.52rem}
+.cp-rev{display:flex;align-items:center;gap:.4rem;padding:.42rem .55rem;border-radius:.7rem;background:#F8FAFC;font-size:.55rem;font-weight:600;color:#475569}
+.cp-stars{color:#F59E0B;letter-spacing:.05em;font-size:.6rem}
+.cp-map{flex:1;min-height:54px;display:grid;align-content:center;justify-items:center;gap:.15rem;padding:.5rem;border-radius:.8rem;text-align:center;background-color:#EEF2F6;background-image:linear-gradient(rgba(255,255,255,.9) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.9) 2px,transparent 2px),linear-gradient(115deg,transparent 46%,rgba(255,255,255,.95) 46% 54%,transparent 54%);background-size:34px 34px,34px 34px,100% 100%}
+.cp-pin{width:14px;height:14px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 3px 6px rgba(15,23,42,.25);margin-bottom:.2rem}
+.cp-map b{font-size:.6rem;color:#0B1220}
+.cp-map small{font-size:.52rem;font-weight:600;color:#475569;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mk-phone.search{display:flex;flex-direction:column;gap:.5rem;padding:14px 11px;background:#fff;color:#0B1220}
+.sp-bar{display:flex;align-items:center;gap:.45rem;padding:.42rem .65rem;border-radius:999px;border:1px solid #E2E8F0;box-shadow:0 2px 6px rgba(15,23,42,.08);font-size:.66rem;font-weight:600}
+.sp-g{flex:none;display:grid;place-items:center;width:17px;height:17px;border-radius:50%;background:#F1F5F9;color:#475569;font-size:.6rem;font-weight:800}
+.sp-q{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sp-cap{font-size:.55rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#94A3B8;padding:.1rem .15rem 0}
+.sp-res{display:grid;gap:.3rem;padding:.55rem .6rem;border-radius:.7rem;background:#F8FAFC}
+.sp-res small{font-size:.56rem;font-weight:700;color:#64748B}
+.sp-res i{display:block;height:6px;border-radius:3px;background:#E2E8F0}
+.sp-res i.s{width:62%}
+.sp-miss{display:grid;gap:.15rem;padding:.6rem;border-radius:.7rem;border:1.5px dashed #FDA4AF;background:#FFF1F2;text-align:center}
+.sp-miss b{font-size:.66rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sp-miss span{font-size:.56rem;font-weight:700;color:#E11D48}
+.mk-miss li{display:flex;gap:.55rem;align-items:flex-start;color:var(--tx2)}
+.mk-miss svg{flex:none;width:1rem;height:1rem;margin-top:.2rem;color:var(--ro)}
+.ring-cap{margin:.2rem 0 -.35rem;font-size:.75rem;font-weight:600;color:var(--tx3);text-align:center}
+.rings{gap:.6rem 1.15rem}
+.ring-w{display:grid;justify-items:center;gap:.4rem}
+.ring-w small{font-size:.6875rem;line-height:1.2;color:var(--tx3);text-align:center;white-space:nowrap}
+.ring b{font-family:inherit;font-weight:700}
+@media (max-width:420px){.rings{gap:.6rem .55rem}.ring{width:62px;height:62px}.ring-w small{font-size:.625rem}}
+/* =====================================================================
+   v6: 3D project deck, app feel, guides
+   ===================================================================== */
+.stage3d{perspective:1400px;perspective-origin:50% 40%}
+.hero-cols .stage3d{align-self:stretch;width:100%;min-width:0}
+.deck{position:relative;display:block;aspect-ratio:10/8.4;margin:0 2% 0 0;transform-style:preserve-3d;transform:rotateX(calc(9deg + var(--rx,0deg))) rotateY(calc(-17deg + var(--ry,0deg)));transition:transform .7s var(--ease);will-change:transform}
+.deck-l{position:absolute;display:block;border-radius:.8rem;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:#0B0F16;box-shadow:0 40px 80px -30px rgba(0,0,0,.9)}
+.deck-l img,.deck-ph img{display:block;width:100%;height:auto}
+.deck-l.l1{left:0;top:21%;width:84%;transform:translateZ(0);box-shadow:0 50px 90px -30px rgba(0,0,0,.95),0 0 0 1px rgba(255,255,255,.03),0 0 80px -20px rgba(16,185,129,.28)}
+.deck-l.l2{left:9%;top:10%;width:80%;transform:translateZ(-110px);opacity:.8;filter:saturate(.85) brightness(.8)}
+.deck-l.l3{left:18%;top:0;width:76%;transform:translateZ(-220px);opacity:.6;filter:saturate(.7) brightness(.6)}
+.deck-bar{display:flex;align-items:center;gap:.3rem;padding:.42rem .65rem;background:#11161D;border-bottom:1px solid rgba(255,255,255,.08);font-size:.68rem;color:#A1A9B6}
+.deck-bar i{width:.42rem;height:.42rem;border-radius:50%;background:rgba(255,255,255,.2)}
+.deck-bar b{margin-left:.5rem;font-family:var(--mono,'Geist Mono',monospace);font-weight:500}
+.deck-bar em{margin-left:auto;font-style:normal;font-weight:600;color:#34D399}
+.deck-ph{position:absolute;right:0;bottom:1%;width:23%;aspect-ratio:9/18.5;padding:4px;border-radius:1.2rem;background:#12161D;border:1px solid rgba(255,255,255,.2);overflow:hidden;transform:translateZ(110px);box-shadow:0 40px 70px -22px rgba(0,0,0,.95)}
+.deck-ph img{height:100%;object-fit:cover;object-position:top;border-radius:.95rem}
+.deck-chip{position:absolute;left:5%;bottom:4%;display:flex;align-items:center;gap:.65rem;padding:.6rem .9rem;border-radius:.9rem;background:rgba(10,13,18,.88);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14);box-shadow:0 26px 50px -18px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.08);transform:translateZ(160px);color:#FAFAFA}
+.deck-chip b{display:block;font-size:.95rem;font-weight:600;white-space:nowrap}
+.deck-chip small{display:block;font-size:.72rem;color:#A1A9B6;white-space:nowrap}
+.deck-dot{width:.55rem;height:.55rem;border-radius:50%;background:#34D399;box-shadow:0 0 0 4px rgba(52,211,153,.18)}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+  .deck-ph{animation:deckF 7s ease-in-out infinite}
+  .deck-chip{animation:deckF 7s ease-in-out -3.5s infinite}
+  .deck:hover .deck-l.l2{opacity:.95}.deck:hover .deck-l.l3{opacity:.8}
+  .deck-l{transition:opacity .4s}
+}
+@keyframes deckF{50%{translate:0 -9px}}
+@media (min-width:1024px){.hero-cols .stage3d{margin-top:-6.5rem}}
+@media (max-width:1023px){
+  .deck{aspect-ratio:10/7.6;margin:0 4% 0 2%;transform:rotateX(7deg) rotateY(-11deg)}
+  .deck-l.l2{transform:translateZ(-70px)}.deck-l.l3{transform:translateZ(-140px)}
+  .deck-ph{transform:translateZ(60px)}.deck-chip{transform:translateZ(90px);left:2%;bottom:2%}
+}
+@media (max-width:479px){.deck-chip{padding:.45rem .7rem}.deck-chip b{font-size:.82rem}.deck-chip small{font-size:.64rem}.deck-bar{font-size:.58rem;padding:.3rem .5rem}}
+
+/* scroll progress under the header (pure CSS, where supported) */
+.sprog{position:fixed;z-index:101;left:0;top:0;width:100%;height:2px;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,#10B981,#6EE7B7);pointer-events:none}
+@supports (animation-timeline:scroll()){.sprog{animation:sprog linear both;animation-timeline:scroll(root)}}
+@keyframes sprog{to{transform:scaleX(1)}}
+
+/* app-style tab bar on phones */
+.tabbar{display:none}
+@media (max-width:767px){
+  .tabbar{position:fixed;z-index:80;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(5,1fr);align-items:end;padding:.35rem .5rem calc(.35rem + env(safe-area-inset-bottom));background:rgba(8,10,14,.86);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);border-top:1px solid rgba(255,255,255,.09)}
+  .tabbar a{display:grid;justify-items:center;gap:.18rem;min-height:50px;padding:.4rem 0 .2rem;border-radius:.8rem;font-size:.66rem;font-weight:600;letter-spacing:.01em;color:#8A94A3;-webkit-tap-highlight-color:transparent;transition:color .2s}
+  .tabbar svg{width:1.3rem;height:1.3rem}
+  .tabbar a[aria-current="true"]{color:#FAFAFA}
+  .tabbar a:active{color:#34D399}
+  .tabbar .tb-main{color:#04130D}
+  .tabbar .tb-main svg{box-sizing:content-box;width:1.25rem;height:1.25rem;padding:.62rem;margin-top:-1.35rem;border-radius:50%;background:linear-gradient(135deg,#34D399,#10B981);box-shadow:0 10px 24px -8px rgba(16,185,129,.8),0 0 0 4px rgba(8,10,14,.9)}
+  .tabbar .tb-main span{color:#D1FAE5}
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+}
+@view-transition{navigation:auto}
+@media (max-width:767px){
+  .ai-fab{bottom:calc(74px + env(safe-area-inset-bottom))}
+  .ai-nudge{bottom:calc(140px + env(safe-area-inset-bottom))}
+  .ai-panel{bottom:calc(72px + env(safe-area-inset-bottom));height:min(600px,calc(100vh - 150px))}
+  .toast{bottom:calc(78px + env(safe-area-inset-bottom))}
+  html.dlg-open .tabbar,html.ai-open .tabbar{display:none}
+}
+
+/* guides list: hairline rows */
+.glist{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.glist a{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:1rem 1.4rem;padding:1.25rem .25rem;border-bottom:1px solid var(--line);transition:padding .35s var(--ease),background-color .3s}
+.glist .gn{font-family:var(--mono,'Geist Mono',monospace);font-size:.8rem;color:var(--tx3)}
+.glist b{display:block;font-size:1.12rem;font-weight:600;letter-spacing:-.01em;color:var(--tx)}
+.glist small{display:block;margin-top:.2rem;font-size:.9rem;color:var(--tx3)}
+.glist .gm{font-size:.8rem;color:var(--tx3);white-space:nowrap}
+@media (hover:hover){.glist a:hover{padding-inline:.9rem;background:rgba(255,255,255,.025)}.glist a:hover b{color:#6EE7B7}}
+@media (max-width:639px){.glist a{grid-template-columns:auto minmax(0,1fr);padding:1rem 0}.glist .gm{display:none}.glist b{font-size:1rem}}
+/* =====================================================================
+   v6.1 backdrop: several layers, each with a plain-colour fallback underneath
+   1) solid charcoal  2) vertical tone shift  3) colour mesh  4) grain  5) per-section glows
+   ===================================================================== */
+html{background:#0A0C10}
+body::before{background:
+  radial-gradient(70% 50% at 12% -6%,rgba(16,185,129,.16),transparent 62%),
+  radial-gradient(55% 45% at 96% 4%,rgba(163,230,53,.07),transparent 60%),
+  radial-gradient(60% 55% at 50% 108%,rgba(20,184,166,.10),transparent 62%),
+  linear-gradient(180deg,#10141A 0%,#0B0E13 38%,#090B0F 70%,#07090C 100%)}
+/* hero mesh: three soft colour fields that drift very slowly */
+.hero::after{inset:-22% -12% auto -12%;height:92%;background:
+  radial-gradient(38% 52% at 14% 12%,rgba(16,185,129,.22),transparent 70%),
+  radial-gradient(34% 46% at 84% 22%,rgba(45,212,191,.14),transparent 70%),
+  radial-gradient(30% 40% at 62% 78%,rgba(163,230,53,.07),transparent 70%);filter:blur(10px)}
+@media (prefers-reduced-motion:no-preference){.hero::after{animation:mesh 22s ease-in-out infinite alternate}}
+@keyframes mesh{to{transform:translate3d(2.5%,3%,0) scale(1.06)}}
+/* sections: a large glow that alternates sides and hue, so the page never reads as one flat colour */
+main{overflow-x:hidden;overflow-x:clip}
+main>.sec{position:relative;isolation:isolate}
+main>.sec::before{content:"";position:absolute;z-index:-1;pointer-events:none;top:6%;left:-18%;width:min(62vw,860px);aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(16,185,129,.10),rgba(16,185,129,.03) 55%,transparent)}
+main>.sec:nth-of-type(even)::before{left:auto;right:-20%;top:18%;background:radial-gradient(closest-side,rgba(45,212,191,.09),rgba(45,212,191,.025) 55%,transparent)}
+main>.sec:nth-of-type(3n)::before{background:radial-gradient(closest-side,rgba(163,230,53,.055),rgba(52,211,153,.03) 55%,transparent)}
+/* pricing sits on its own lit panel */
+#packages::after{content:"";position:absolute;z-index:-1;pointer-events:none;inset:8% 0 auto 0;height:70%;background:radial-gradient(50% 60% at 50% 30%,rgba(16,185,129,.10),transparent 70%)}
+.plan.feat{background:linear-gradient(180deg,rgba(16,185,129,.16),rgba(45,212,191,.05) 45%,rgba(255,255,255,.02))}
+.cta-band{background:radial-gradient(60% 130% at 20% 0%,rgba(16,185,129,.24),transparent 70%),radial-gradient(50% 110% at 90% 100%,rgba(163,230,53,.10),transparent 70%),linear-gradient(180deg,#11161D,#0B0E13)}
+.foot{background:radial-gradient(60% 80% at 10% 0%,rgba(16,185,129,.09),transparent 70%),radial-gradient(45% 70% at 95% 100%,rgba(45,212,191,.06),transparent 70%),#080A0E}
+
+/* crossing bands under the hero */
+.mq{position:relative;height:clamp(118px,15vw,170px);margin-top:clamp(2.5rem,5vw,4rem);overflow:hidden;overflow:clip}
+.mq-band{position:absolute;left:-6%;width:112%;top:50%;padding:.72rem 0;white-space:nowrap;overflow:hidden}
+.mq-a{transform:translateY(-50%) rotate(-2.4deg);background:#34D399;background:linear-gradient(90deg,#BEF264,#34D399 45%,#2DD4BF);color:#04130D;box-shadow:0 20px 50px -20px rgba(16,185,129,.55)}
+.mq-b{transform:translateY(-50%) rotate(2.2deg);background:#12161D;border-block:1px solid rgba(255,255,255,.08);color:#7C8696}
+.mq-track{display:inline-flex}
+.mq-row{display:inline-flex;align-items:center;flex:none}
+.mq-row span{padding:0 1.15rem;font-size:clamp(.82rem,.7rem + .5vw,1rem);font-weight:600;letter-spacing:-.005em}
+.mq-row i{font-style:normal;font-size:.7em;opacity:.55}
+@media (prefers-reduced-motion:no-preference){
+  .mq-a .mq-track{animation:mq 38s linear infinite}
+  .mq-b .mq-track{animation:mq 46s linear infinite reverse}
+}
+@keyframes mq{to{transform:translateX(-50%)}}
+.mq + .sec{padding-top:clamp(3rem,6vw,5rem)}
+/* =====================================================================
+   v6.2 feel: reactions to touch, live quote bar, celebration
+   ===================================================================== */
+.btn{transition:transform .18s var(--ease),box-shadow .25s,background-color .2s,border-color .2s,color .2s}
+.btn:active{transform:scale(.965)}
+@media (hover:hover){
+  .btn.primary:hover{transform:translateY(-1px);box-shadow:0 0 0 1px rgba(255,255,255,.16) inset,0 16px 34px -14px rgba(16,185,129,.95)}
+  .btn.ghost:hover{transform:translateY(-1px)}
+  .work,.plan,.build-col{transition:transform .4s var(--ease),border-color .3s,box-shadow .4s}
+  .plan:hover{transform:translateY(-4px)}
+  .faq-q:hover span{color:#6EE7B7}
+}
+.opt:active,.plan:active{transform:scale(.99)}
+.tabbar a:active svg{transform:scale(.88)}.tabbar svg{transition:transform .15s}
+/* prices slide in when the currency changes */
+@media (prefers-reduced-motion:no-preference){
+  .cur-flip [data-pkg-price],.cur-flip [data-pkg-alt],.cur-flip [data-pkg-adv],.cur-flip [data-addon-price],.cur-flip [data-care],.cur-flip #qb-total,.cur-flip #qb-advance,.cur-flip #qbar-total{animation:curflip .45s var(--ease) both}
+  @keyframes curflip{0%{opacity:0;transform:translateY(.45em);filter:blur(3px)}100%{opacity:1;transform:none;filter:none}}
+  [data-pkg-price],[data-pkg-alt],[data-pkg-adv]{display:inline-block}
+}
+/* live quote bar */
+.qbar{position:fixed;z-index:79;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.6rem .6rem .6rem 1rem;border-radius:1.1rem;background:rgba(13,17,22,.92);-webkit-backdrop-filter:blur(18px) saturate(1.3);backdrop-filter:blur(18px) saturate(1.3);border:1px solid rgba(52,211,153,.35);box-shadow:0 24px 50px -18px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.07);transform:translateY(140%);opacity:0;transition:transform .45s var(--ease),opacity .3s}
+.qbar.show{transform:none;opacity:1}
+.qbar-t small{display:block;font-size:.7rem;color:var(--tx3);line-height:1.2}
+.qbar-t b{font-size:1.1rem;color:var(--tx);white-space:nowrap}
+@media (max-width:767px){.qbar{bottom:calc(70px + env(safe-area-inset-bottom))}.qbar.show ~ .ai-fab,body:has(.qbar.show) .ai-fab{opacity:0;pointer-events:none}}
+@media (min-width:1024px){.qbar{display:none!important}}
+/* celebration */
+.confirm .okmark{animation:none}
+@media (prefers-reduced-motion:no-preference){
+  .confirm.celebrate .okmark{animation:okpop .7s var(--ease) both}
+  .confirm.celebrate .confirm-id{animation:idglow 1.6s ease-out both}
+  @keyframes okpop{0%{transform:scale(.3) rotate(-25deg);opacity:0}60%{transform:scale(1.18)}100%{transform:none;opacity:1}}
+  @keyframes idglow{0%{box-shadow:0 0 0 0 rgba(52,211,153,.55)}100%{box-shadow:0 0 0 22px rgba(52,211,153,0)}}
+}
+.confetti{position:fixed;inset:0;z-index:400;width:100%;height:100%;pointer-events:none}
 </style>
 </head>
 <body>
@@ -1190,6 +1378,7 @@ body{font-family:var(--ui);color:#A7B0BE;letter-spacing:-.003em}
       <a class="nav-link nav-hot" href="#makeover">Makeover</a>
       <a class="nav-link" href="#capabilities">Services</a>
       <a class="nav-link" href="#packages">Pricing</a>
+      <a class="nav-link" href="/guides/">Guides</a>
       <a class="nav-link" href="#faq">FAQ</a>
     </nav>
     <div style="display:flex;align-items:center;gap:.5rem">
@@ -1205,6 +1394,7 @@ body{font-family:var(--ui);color:#A7B0BE;letter-spacing:-.003em}
     <a class="mm-link" href="#capabilities">Services</a>
     <a class="mm-link" href="#packages">Pricing</a>
     <a class="mm-link" href="#quote">Quote Builder</a>
+    <a class="mm-link" href="/guides/">Guides</a>
     <a class="mm-link" href="#faq">FAQ</a>
     <div class="mm-actions">
       <a href="#quote" class="btn primary full">Start Project</a>
@@ -1214,6 +1404,18 @@ body{font-family:var(--ui);color:#A7B0BE;letter-spacing:-.003em}
   </div>
 </header>
 
+<div class="sprog" aria-hidden="true"></div>
+<nav class="tabbar" aria-label="Quick navigation">
+  <a href="#top" data-tab="top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg><span>Home</span></a>
+  <a href="#work" data-tab="work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span>Work</span></a>
+  <a href="#quote" class="tb-main" data-tab="quote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg><span>Quote</span></a>
+  <a href="#packages" data-tab="packages"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7-7A2 2 0 0 1 3 12.2V5a2 2 0 0 1 2-2h7.2a2 2 0 0 1 1.4.6l7 7a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg><span>Prices</span></a>
+  <a href="#track" data-tab="track" data-open-tracker><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".8" fill="currentColor"/></svg><span>Track</span></a>
+</nav>
+<div class="qbar" id="qbar" hidden data-noedit>
+  <span class="qbar-t"><small>Your quote</small><b id="qbar-total" class="mono">Rs. 55,000</b></span>
+  <a class="btn primary sm" href="#qb-summary">Review &amp; send<i data-lucide="arrow-right" aria-hidden="true"></i></a>
+</div>
 <main id="main" tabindex="-1">
 
 <!-- ======================= HERO ======================= -->
@@ -1235,17 +1437,14 @@ body{font-family:var(--ui);color:#A7B0BE;letter-spacing:-.003em}
         <p class="lang-row rise" style="--d:300ms"><span>We speak your language:</span><span class="l">English</span><a class="l" lang="si" href="/si/">සිංහල</a><a class="l" lang="ta" href="/ta/">தமிழ்</a></p>
       </div>
 
-      <div class="stage3d rise" style="--d:260ms">
-        <div class="tilt">
-          <a class="hero-ba" href="#compare-section" aria-label="See the real EnerFab rebuild: on a phone over 4G the main content took 6.46 seconds on the old efpl.org and 1.12 seconds on the new enerfab.lk">
-        <span class="hb-head"><span class="hb-k">Real rebuild, measured</span><span class="hb-t">EnerFab: efpl.org → enerfab.lk</span></span>
-        <span class="hb-pair">
-          <span class="hb-shot hb-before"><img src="assets/work/efpl-before-desktop.webp" width="1152" height="720" alt="" decoding="async"><span class="hb-chip bad"><b class="mono">6.46 s</b>before</span></span>
-          <span class="hb-shot hb-after"><img src="assets/work/enerfab-desktop.webp" width="1152" height="720" alt="" decoding="async"><span class="hb-chip good"><b class="mono">1.12 s</b>after</span></span>
-        </span>
-        <span class="hb-foot"><span>Main content on a phone over 4G</span><span class="hb-go">Compare them<i data-lucide="arrow-down" aria-hidden="true"></i></span></span>
-      </a>
-        </div>
+      <div class="stage3d rise" style="--d:260ms" data-noedit>
+        <a class="deck" href="#work" data-deck aria-label="See our live work: EnerFab, English Genius and CampusFlow">
+          <span class="deck-l l3"><img src="assets/work/campusflow-desktop.webp" width="1152" height="720" alt="" decoding="async"></span>
+          <span class="deck-l l2"><img src="assets/work/englishgenius-desktop.webp" width="1152" height="720" alt="" decoding="async"></span>
+          <span class="deck-l l1"><span class="deck-bar"><i></i><i></i><i></i><b>enerfab.lk</b><em>Live</em></span><img src="assets/work/enerfab-desktop.webp" width="1152" height="720" alt="The EnerFab website we built" decoding="async" fetchpriority="high"></span>
+          <span class="deck-ph"><img src="assets/work/enerfab-mobile.webp" width="624" height="1350" alt="" decoding="async"></span>
+          <span class="deck-chip"><span class="deck-dot" aria-hidden="true"></span><span><b class="mono">6.46 s → 1.12 s</b><small>EnerFab rebuild, measured on 4G</small></span></span>
+        </a>
       </div>
     </div>
 
@@ -1259,6 +1458,12 @@ body{font-family:var(--ui);color:#A7B0BE;letter-spacing:-.003em}
 
 </section>
 
+
+<!-- ======================= CROSSING BANDS ======================= -->
+<div class="mq" data-noedit>
+  <div class="mq-band mq-b" aria-hidden="true"><div class="mq-track"><span class="mq-row" aria-hidden="true"><span>Live in 3–10 days</span><i>✦</i><span>From Rs. 29,000</span><i>✦</i><span>No monthly fees</span><i>✦</i><span>English · සිංහල · தமிழ்</span><i>✦</i><span>Preview in 48 hours</span><i>✦</i><span>Fully managed for you</span><i>✦</i><span>Track every step live</span><i>✦</i></span><span class="mq-row" aria-hidden="true"><span>Live in 3–10 days</span><i>✦</i><span>From Rs. 29,000</span><i>✦</i><span>No monthly fees</span><i>✦</i><span>English · සිංහල · தமிழ்</span><i>✦</i><span>Preview in 48 hours</span><i>✦</i><span>Fully managed for you</span><i>✦</i><span>Track every step live</span><i>✦</i></span></div></div>
+  <div class="mq-band mq-a"><div class="mq-track"><span class="mq-row"><span>Live in 3–10 days</span><i>✦</i><span>From Rs. 29,000</span><i>✦</i><span>No monthly fees</span><i>✦</i><span>English · සිංහල · தமிழ்</span><i>✦</i><span>Preview in 48 hours</span><i>✦</i><span>Fully managed for you</span><i>✦</i><span>Track every step live</span><i>✦</i></span><span class="mq-row" aria-hidden="true"><span>Live in 3–10 days</span><i>✦</i><span>From Rs. 29,000</span><i>✦</i><span>No monthly fees</span><i>✦</i><span>English · සිංහල · தமிழ்</span><i>✦</i><span>Preview in 48 hours</span><i>✦</i><span>Fully managed for you</span><i>✦</i><span>Track every step live</span><i>✦</i></span></div></div>
+</div>
 
 <!-- ======================= REAL BEFORE / AFTER (efpl.org → enerfab.lk) ======================= -->
 <section id="compare-section" class="sec" aria-labelledby="cmp-title">
@@ -1839,6 +2044,7 @@ body{font-family:var(--ui);color:#A7B0BE;letter-spacing:-.003em}
           <div class="confirm-actions">
             <button type="button" class="btn primary full" id="qb-track"><i data-lucide="radar" aria-hidden="true"></i>Open in Live Tracker</button>
             <a class="btn wa full" id="qb-wa" href="#" target="_blank" rel="noopener noreferrer"><i data-lucide="message-circle" aria-hidden="true"></i>Open WhatsApp to confirm</a>
+            <button type="button" class="btn ghost full" data-install hidden><i data-lucide="download" aria-hidden="true"></i>Add to home screen to track it</button>
             <button type="button" class="btn ghost full" id="qb-again">Create another quote</button>
           </div>
         </div>
@@ -1848,6 +2054,24 @@ body{font-family:var(--ui);color:#A7B0BE;letter-spacing:-.003em}
 </section>
 
 <!-- ======================= FAQ ======================= -->
+<section id="guides" class="sec" aria-labelledby="guides-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;max-width:none">
+      <div style="max-width:42rem">
+        <h2 id="guides-title" class="t-h2">Guides for owners, <em class="accent">in plain language.</em></h2>
+        <p class="lead">Free, practical answers to the questions we hear every week. Nothing to sign up for.</p>
+      </div>
+      <a class="btn ghost" href="/guides/">All guides<i data-lucide="arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <ol class="glist">
+      <li><a href="/how-to-get-business-on-google-maps-sri-lanka/"><span class="gn">01</span><span class="gt"><b>How to get your business on Google Maps</b><small>Set up, verify and fill in a free Google Business Profile, step by step.</small></span><span class="gm">6 min read</span></a></li>
+      <li><a href="/facebook-page-vs-website/"><span class="gn">02</span><span class="gt"><b>Facebook page or website: what does your business need?</b><small>What each one does well, where a page falls short, and when you need both.</small></span><span class="gm">5 min read</span></a></li>
+      <li><a href="/lk-or-com-domain/"><span class="gn">03</span><span class="gt"><b>.lk or .com: which domain should you choose?</b><small>Trust, price, search ranking, and what to do if your name is taken.</small></span><span class="gm">5 min read</span></a></li>
+      <li><a href="/website-checklist-before-you-start/"><span class="gn">04</span><span class="gt"><b>Twelve things to prepare before you start a website</b><small>The checklist we send every new client. Gather it in an afternoon.</small></span><span class="gm">4 min read</span></a></li>
+    </ol>
+  </div>
+</section>
+
 <section id="faq" class="sec" aria-labelledby="faq-title" style="padding-top:0">
   <div class="wrap faq-layout">
     <div class="sec-head faq-head">
@@ -1953,7 +2177,7 @@ body{font-family:var(--ui);color:#A7B0BE;letter-spacing:-.003em}
         <a class="btn primary sm foot-quote" href="#quote">Build your quote<i data-lucide="arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
-    <nav class="foot-more" aria-label="More from MinutePage"><a class="foot-link" href="/small-business-website-sri-lanka/">Small business websites</a><a class="foot-link" href="/website-redesign-sri-lanka/">Website redesign</a><a class="foot-link" href="/hotel-website-design-sri-lanka/">Hotel &amp; villa websites</a><a class="foot-link" href="/web-design-colombo/">Web design in Colombo</a><a class="foot-link" href="/google-business-profile-setup-sri-lanka/">Google Maps &amp; local SEO</a><a class="foot-link" href="/sinhala-tamil-website-design/">Sinhala &amp; Tamil websites</a><a class="foot-link" href="/facebook-page-vs-website/">Guide: Facebook page or website?</a><a class="foot-link" href="/how-to-choose-web-designer-sri-lanka/">Guide: choosing a web designer</a></nav>
+    <nav class="foot-more" aria-label="More from MinutePage"><a class="foot-link" href="/guides/">All guides</a><a class="foot-link" href="/small-business-website-sri-lanka/">Small business websites</a><a class="foot-link" href="/website-redesign-sri-lanka/">Website redesign</a><a class="foot-link" href="/hotel-website-design-sri-lanka/">Hotel &amp; villa websites</a><a class="foot-link" href="/web-design-colombo/">Web design in Colombo</a><a class="foot-link" href="/google-business-profile-setup-sri-lanka/">Google Maps &amp; local SEO</a><a class="foot-link" href="/sinhala-tamil-website-design/">Sinhala &amp; Tamil websites</a><a class="foot-link" href="/facebook-page-vs-website/">Guide: Facebook page or website?</a><a class="foot-link" href="/how-to-choose-web-designer-sri-lanka/">Guide: choosing a web designer</a></nav>
     <div class="foot-bottom">
       <span>© 2026 MinutePage. Payments by bank transfer.</span>
       <span class="foot-legal">
@@ -4036,6 +4260,16 @@ const MK_TYPES = {
   industry: { label: "Industry or manufacturing",     pkg: "business", c1: "#0F766E", c2: "#22C55E", hero: "Engineering trusted across Sri Lanka", sub: "Products, projects and fast quotes", tiles: ["Products", "Projects", "Request a quote"] },
   other:    { label: "Other",                         pkg: "business", c1: "#059669", c2: "#5EEAD4", hero: "Found on Google, booked on WhatsApp", sub: "Everything customers need, on one fast page", tiles: ["What we do", "Prices", "Message us"] }
 };
+const MK_MORE = {
+  shop:     { list: [["New arrivals", "In stock"], ["Best sellers", "Cash on delivery"], ["Offers this week", "Save more"]], meta: "Island-wide delivery · Open 9 am – 7 pm" },
+  food:     { list: [["Rice & curry", "Lunch"], ["Short eats", "All day"], ["Cakes to order", "2 days notice"]], meta: "Open today 7 am – 10 pm · Find us on Maps" },
+  hotel:    { list: [["Deluxe room", "Sea view"], ["Family villa", "Sleeps 6"], ["Day tours", "Book direct"]], meta: "Airport pickup · Free cancellation" },
+  beauty:   { list: [["Hair cut & style", "45 min"], ["Bridal packages", "By booking"], ["Facials & spa", "60 min"]], meta: "Open today 9 am – 7 pm · Walk-ins welcome" },
+  school:   { list: [["Grade 6–11 classes", "Weekdays"], ["O/L & A/L revision", "Weekends"], ["Online classes", "Live"]], meta: "New intake open · Call the office" },
+  services: { list: [["Free site visit", "Same week"], ["Repairs & installs", "Fixed quote"], ["Emergency call-out", "24/7"]], meta: "Serving your area · Open 8 am – 6 pm" },
+  industry: { list: [["Product range", "Specs & PDFs"], ["Completed projects", "Case studies"], ["Request a quote", "1-day reply"]], meta: "Island-wide supply · Mon – Sat" },
+  other:    { list: [["What we offer", "Details"], ["Prices", "Clear & upfront"], ["Where to find us", "Map & hours"]], meta: "Open today · Tap to call" }
+};
 const MK_FIXES = {
   "render-blocking-resources": "Remove the scripts and styles that block the page from showing",
   "unused-javascript": "Cut unused JavaScript so phones load faster",
@@ -4099,16 +4333,29 @@ async function runPageSpeed(url) {
 }
 const ring = (val, label) => {
   const tone = val >= 90 ? "good" : val >= 50 ? "mid" : "bad";
-  return h("div", { class: `ring ${tone}`, style: `--v:${val}` }, h("b", null, String(val)), h("small", null, label));
+  return h("div", { class: "ring-w" }, h("div", { class: `ring ${tone}`, style: `--v:${val}` }, h("b", null, String(val))), h("small", null, label));
 };
-function conceptPhone(name, t) {
+function searchPhone(name) {
+  const short = name.length > 24 ? name.slice(0, 23) + "…" : name;
+  const other = () => h("div", { class: "sp-res" }, h("small", null, "Another business"), h("i", null), h("i", { class: "s" }));
+  return h("div", { class: "mk-phone search", "aria-label": "Illustration of a Google search for your business with no website of your own" },
+    h("div", { class: "sp-bar" }, h("span", { class: "sp-g" }, "G"), h("span", { class: "sp-q" }, short)),
+    h("small", { class: "sp-cap" }, "What a customer sees today"),
+    other(), other(),
+    h("div", { class: "sp-miss" }, h("b", null, short), h("span", null, "No website to show")),
+    other(), other(), other(), other());
+}
+function conceptPhone(name, t, type) {
+  const more = MK_MORE[type] || MK_MORE.other;
   const short = name.length > 22 ? name.slice(0, 21) + "…" : name;
   return h("div", { class: "mk-phone concept", style: `--c1:${t.c1};--c2:${t.c2}` },
     h("div", { class: "cp-nav" }, h("span", { class: "cp-logo" }, initials({ displayName: name })), h("span", { class: "cp-name" }, short), h("span", { class: "cp-burger" })),
     h("div", { class: "cp-hero" }, h("span", { class: "cp-chip" }, "● Open now"), h("b", null, t.hero), h("small", null, t.sub),
       h("span", { class: "cp-btns" }, h("span", { class: "cp-btn wa" }, "WhatsApp us"), h("span", { class: "cp-btn" }, "Call"))),
     h("div", { class: "cp-tiles" }, ...t.tiles.map((x) => h("span", null, x))),
-    h("div", { class: "cp-proof" }, h("span", null, "★ Your Google reviews"), h("span", null, "Fast · Secure")),
+    h("div", { class: "cp-list" }, ...more.list.map(([a, b]) => h("div", null, h("b", null, a), h("span", null, b)))),
+    h("div", { class: "cp-rev" }, h("span", { class: "cp-stars" }, "★★★★★"), h("span", null, "Your Google reviews show here")),
+    h("div", { class: "cp-map" }, h("span", { class: "cp-pin" }), h("b", null, "Find us on Google Maps"), h("small", null, more.meta)),
     h("div", { class: "cp-sticky" }, "💬 Chat on WhatsApp"));
 }
 function renderMakeover({ name, type, url, psi, err }) {
@@ -4119,17 +4366,23 @@ function renderMakeover({ name, type, url, psi, err }) {
         h("div", { class: "mk-col-h" }, h("span", { class: "tag" }, "Today"), h("span", { class: "mono work-domain" }, url.replace(/^https?:\/\//, "").replace(/\/$/, ""))),
         psi && psi.shot ? h("div", { class: "mk-phone shot" }, h("img", { src: psi.shot, alt: `Your current site on a phone, as Google's test saw it`, width: "412", height: "823", decoding: "async" })) :
           h("div", { class: "mk-phone empty" }, h("span", null, err ? "We couldn't load a screenshot this time" : "No screenshot")),
-        psi ? h("div", { class: "rings" }, ring(psi.perf, "Speed"), ring(psi.seo, "SEO"), ring(psi.a11y, "Access"), ring(psi.bp, "Best practice")) : null,
+        psi ? h("p", { class: "ring-cap" }, "Measured just now by Google") : null,
+        psi ? h("div", { class: "rings" }, ring(psi.perf, "Speed"), ring(psi.seo, "SEO"), ring(psi.a11y, "Accessibility"), ring(psi.bp, "Best practice")) : null,
         psi ? h("ul", { class: "mk-stats" },
           h("li", null, h("b", { class: "mono" }, `${psi.lcp} s`), " for the main content on mobile"),
           h("li", null, h("b", { class: "mono" }, psi.weightKb >= 1024 ? `${(psi.weightKb / 1024).toFixed(1)} MB` : `${psi.weightKb} KB`), " downloaded"),
           h("li", null, h("b", { class: "mono" }, String(psi.requests)), " separate requests")) :
           h("p", { class: "hint" }, err || ""))
-    : h("div", { class: "mk-col" }, h("div", { class: "mk-col-h" }, h("span", { class: "tag" }, "Today")), h("div", { class: "mk-phone empty" }, h("span", null, "No website yet. That's fine: you start with a clean, fast one.")));
+    : h("div", { class: "mk-col" }, h("div", { class: "mk-col-h" }, h("span", { class: "tag" }, "Today")), searchPhone(name),
+        h("ul", { class: "mk-stats mk-miss" },
+          h("li", null, ico("x"), h("span", null, "People who search for you find other businesses")),
+          h("li", null, ico("x"), h("span", null, "Nowhere to see your prices, hours or location")),
+          h("li", null, ico("x"), h("span", null, "No link to share on WhatsApp, Facebook or a business card"))));
   const after = h("div", { class: "mk-col after" },
     h("div", { class: "mk-col-h" }, h("span", { class: "tag tag-app" }, "With MinutePage"), h("span", { class: "hint", style: "margin:0" }, (type === "other" ? "Concept for your business" : "Concept for " + t.label.toLowerCase()))),
-    conceptPhone(name, t),
-    h("div", { class: "rings" }, ring(95, "Speed target"), ring(100, "SEO target"), ring(95, "Access"), ring(100, "Best practice")),
+    conceptPhone(name, t, type),
+    h("p", { class: "ring-cap" }, "Scores we build to (targets, not a measurement)"),
+    h("div", { class: "rings" }, ring(95, "Speed"), ring(100, "SEO"), ring(95, "Accessibility"), ring(100, "Best practice")),
     h("ul", { class: "mk-stats" },
       h("li", null, h("b", { class: "mono" }, "< 1.5 s"), " target on mobile 4G (EnerFab: 6.46 s → 1.12 s)"),
       h("li", null, h("b", { class: "mono" }, "< 500 KB"), " target page weight"),
@@ -4577,10 +4830,108 @@ function initSelects() {
   });
 }
 
+/* 3D deck: leans a few degrees toward the pointer on desktop. Phones and reduced motion keep the resting angle. */
+function initDeck() {
+  const el = $("[data-deck]");
+  if (!el || reduced()) return;
+  const mq = window.matchMedia("(min-width: 1024px) and (hover: hover) and (pointer: fine)");
+  const stage = el.closest(".hero") || el.parentElement;
+  let raf = 0, px = 0.5, py = 0.5;
+  const apply = () => { raf = 0; el.style.setProperty("--ry", ((px - 0.5) * 12).toFixed(2) + "deg"); el.style.setProperty("--rx", ((0.5 - py) * 7).toFixed(2) + "deg"); };
+  stage.addEventListener("pointermove", (e) => {
+    if (!mq.matches) return;
+    const r = stage.getBoundingClientRect();
+    px = clamp((e.clientX - r.left) / r.width, 0, 1); py = clamp((e.clientY - r.top) / r.height, 0, 1);
+    if (!raf) raf = requestAnimationFrame(apply);
+  });
+  stage.addEventListener("pointerleave", () => { el.style.removeProperty("--rx"); el.style.removeProperty("--ry"); });
+}
+/* Tab bar: highlight the section in view. */
+function initTabbar() {
+  const tabs = $$(".tabbar a[data-tab]");
+  if (!tabs.length || !("IntersectionObserver" in window)) return;
+  const map = { top: ".hero", work: "#work", packages: "#packages", quote: "#quote" };
+  const set = (k) => tabs.forEach((t) => t.setAttribute("aria-current", String(t.dataset.tab === k)));
+  const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) set(e.target.dataset.tabKey); }); }, { rootMargin: "-45% 0px -50% 0px" });
+  Object.entries(map).forEach(([k, sel]) => { const n = $(sel); if (n) { n.dataset.tabKey = k; io.observe(n); } });
+  set("top");
+}
+
+/* ---- feel: small things that make the page react like an app ---- */
+const buzz = (p) => { try { if (!reduced() && navigator.vibrate) navigator.vibrate(p); } catch { /* not supported */ } };
+function confetti() {
+  if (reduced()) return;
+  const c = document.createElement("canvas"); c.className = "confetti"; c.setAttribute("aria-hidden", "true");
+  const dpr = Math.min(window.devicePixelRatio || 1, 2), W = innerWidth, H = innerHeight;
+  c.width = W * dpr; c.height = H * dpr; document.body.append(c);
+  const g = c.getContext("2d"); g.scale(dpr, dpr);
+  const cols = ["#34D399", "#10B981", "#BEF264", "#2DD4BF", "#FAFAFA"];
+  const P = Array.from({ length: Math.min(110, Math.round(W / 9)) }, () => ({ x: W / 2 + (Math.random() - 0.5) * W * 0.3, y: H * 0.42, vx: (Math.random() - 0.5) * 13, vy: -Math.random() * 13 - 4, s: Math.random() * 6 + 4, r: Math.random() * 6.3, vr: (Math.random() - 0.5) * 0.4, c: cols[(Math.random() * cols.length) | 0] }));
+  const t0 = performance.now();
+  (function frame(t) {
+    const k = (t - t0) / 1900;
+    g.clearRect(0, 0, W, H);
+    if (k >= 1) { c.remove(); return; }
+    for (const p of P) { p.vy += 0.34; p.vx *= 0.99; p.x += p.vx; p.y += p.vy; p.r += p.vr; g.save(); g.globalAlpha = k > 0.7 ? (1 - k) / 0.3 : 1; g.translate(p.x, p.y); g.rotate(p.r); g.fillStyle = p.c; g.fillRect(-p.s / 2, -p.s / 3, p.s, p.s * 0.66); g.restore(); }
+    requestAnimationFrame(frame);
+  })(t0);
+}
+function initFeel() {
+  // 1) currency switch: prices slide in
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest("[data-cur-btn]")) return;
+    const r = document.documentElement; r.classList.remove("cur-flip"); void r.offsetWidth; r.classList.add("cur-flip");
+    setTimeout(() => r.classList.remove("cur-flip"), 600);
+  });
+  // 2) light tap feedback on phones for the main actions
+  document.addEventListener("pointerdown", (e) => { if (e.pointerType === "touch" && e.target.closest(".btn.primary,.tabbar a,.psel-opt,.opt")) buzz(8); }, { passive: true });
+  // 3) numbers count up the first time they are seen
+  const nums = $$(".ba-table td.mono, .proof .pv").filter((el) => /^\d+(\.\d+)?\s/.test(el.textContent.trim()));
+  if (nums.length && "IntersectionObserver" in window && !reduced()) {
+    const io = new IntersectionObserver((es) => es.forEach((en) => {
+      if (!en.isIntersecting) return;
+      io.unobserve(en.target);
+      const el = en.target, full = el.textContent, m = full.trim().match(/^(\d+(?:\.\d+)?)(.*)$/);
+      const to = parseFloat(m[1]), dec = (m[1].split(".")[1] || "").length, t0 = performance.now(), dur = 900;
+      el.style.minWidth = el.offsetWidth + "px";
+      (function step(t) { const k = Math.min(1, (t - t0) / dur), e3 = 1 - Math.pow(1 - k, 3); el.textContent = (to * e3).toFixed(dec) + m[2]; if (k < 1) requestAnimationFrame(step); else { el.textContent = full; el.style.minWidth = ""; } })(t0);
+    }), { threshold: 0.6 });
+    nums.forEach((n) => io.observe(n));
+  }
+  // 4) live quote bar: the running total follows you while you build the quote
+  const bar = $("#qbar"), total = $("#qb-total"), sum = $("#qb-summary"), sec = $("#quote"), conf = $("#qb-confirm");
+  if (bar && total && sum && sec && "IntersectionObserver" in window) {
+    let inSec = false, sumSeen = false;
+    const mirror = () => { $("#qbar-total").textContent = total.textContent; };
+    const upd = () => { const on = inSec && !sumSeen && conf.hidden; if (on) bar.hidden = false; requestAnimationFrame(() => bar.classList.toggle("show", on)); };
+    new MutationObserver(mirror).observe(total, { childList: true, characterData: true, subtree: true }); mirror();
+    new IntersectionObserver((es) => { inSec = es[0].isIntersecting; upd(); }, { rootMargin: "-20% 0px -20% 0px" }).observe(sec);
+    new IntersectionObserver((es) => { sumSeen = es[0].isIntersecting; upd(); }, { threshold: 0.25 }).observe(sum);
+    new MutationObserver(upd).observe(conf, { attributes: true, attributeFilter: ["hidden"] });
+  }
+  // 5) celebrate a created quote
+  if (conf) new MutationObserver(() => {
+    if (conf.hidden) { conf.classList.remove("celebrate"); return; }
+    conf.classList.add("celebrate"); confetti(); buzz([14, 50, 14]);
+  }).observe(conf, { attributes: true, attributeFilter: ["hidden"] });
+  // 6) start loading the next page the moment a finger or pointer lands on its link
+  const seen = new Set();
+  const warm = (e) => {
+    const a = e.target.closest && e.target.closest('a[href^="/"]');
+    if (!a) return;
+    const u = a.getAttribute("href").split("#")[0];
+    if (!u || u === "/" || seen.has(u) || seen.size > 12 || navigator.connection?.saveData) return;
+    seen.add(u);
+    const l = document.createElement("link"); l.rel = "prefetch"; l.href = u; document.head.append(l);
+  };
+  document.addEventListener("pointerenter", warm, { capture: true, passive: true });
+  document.addEventListener("touchstart", warm, { passive: true });
+}
+
 function boot() {
   // each step runs on its own, so one failure (old browser, blocked API) never takes the rest of the page down
   const run = (fn) => { try { fn(); } catch (err) { console.error("[MinutePage]", fn.name || "init", err); } };
-  [loadSiteContent, applyConfig, initDialogs, initNav, initSpotlight, initCompare, initHeroDemo, initFaq, initQuote, renderCurrency, initPromo, initEvents, initPwa, initTilt, initCompact, initAssistant, initAccount, initSelects, initMakeover, initTrust, icons, handleHash, initReveal].forEach(run);
+  [loadSiteContent, applyConfig, initDialogs, initNav, initSpotlight, initCompare, initHeroDemo, initFaq, initQuote, renderCurrency, initPromo, initEvents, initPwa, initTilt, initCompact, initAssistant, initAccount, initSelects, initDeck, initTabbar, initFeel, initMakeover, initTrust, icons, handleHash, initReveal].forEach(run);
   addEventListener("hashchange", handleHash);
   const idle = window.requestIdleCallback ? (cb) => window.requestIdleCallback(cb, { timeout: 5000 }) : (cb) => setTimeout(cb, 2500);
   const warm = () => idle(() => { loadFirebase().catch(() => {}); initAnalytics(); });

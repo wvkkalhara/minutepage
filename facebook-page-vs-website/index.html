@@ -134,6 +134,28 @@ summary{font-weight:500;letter-spacing:-.015em}
 .guide a{color:var(--tx);text-decoration:underline;text-decoration-color:rgba(52,211,153,.6);text-underline-offset:3px}
 .guide h2{font-size:1.3rem;margin-top:2.2rem}
 .guide p,.guide li{font-size:1.02rem;line-height:1.7}
+.glist{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.glist a{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:1rem 1.4rem;padding:1.2rem .25rem;border-bottom:1px solid var(--line)}
+.glist .gn{font-size:.8rem;color:var(--tx3)}
+.glist b{display:block;font-size:1.1rem;font-weight:600;color:var(--tx)}
+.glist small{display:block;margin-top:.2rem;font-size:.9rem;color:var(--tx3)}
+.glist .gm{font-size:.8rem;color:var(--tx3);white-space:nowrap}
+.glist a:hover b{color:#6EE7B7}
+@media (max-width:639px){.glist a{grid-template-columns:auto minmax(0,1fr)}.glist .gm{display:none}}
+/* app-style tab bar on phones */
+.tabbar{display:none}
+@media (max-width:767px){
+  .tabbar{position:fixed;z-index:80;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(5,1fr);align-items:end;padding:.35rem .5rem calc(.35rem + env(safe-area-inset-bottom));background:rgba(8,10,14,.86);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);border-top:1px solid rgba(255,255,255,.09)}
+  .tabbar a{display:grid;justify-items:center;gap:.18rem;min-height:50px;padding:.4rem 0 .2rem;border-radius:.8rem;font-size:.66rem;font-weight:600;letter-spacing:.01em;color:#8A94A3;-webkit-tap-highlight-color:transparent;transition:color .2s}
+  .tabbar svg{width:1.3rem;height:1.3rem}
+  .tabbar a[aria-current="true"]{color:#FAFAFA}
+  .tabbar a:active{color:#34D399}
+  .tabbar .tb-main{color:#04130D}
+  .tabbar .tb-main svg{box-sizing:content-box;width:1.25rem;height:1.25rem;padding:.62rem;margin-top:-1.35rem;border-radius:50%;background:linear-gradient(135deg,#34D399,#10B981);box-shadow:0 10px 24px -8px rgba(16,185,129,.8),0 0 0 4px rgba(8,10,14,.9)}
+  .tabbar .tb-main span{color:#D1FAE5}
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+}
+@view-transition{navigation:auto}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 </head>
@@ -142,12 +164,12 @@ summary{font-weight:500;letter-spacing:-.015em}
 
 <header><div class="wrap hd">
   <a class="brand" href="/" aria-label="MinutePage home"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false"><defs><linearGradient id="mpG" x1="5" y1="29" x2="28" y2="4" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#10B981"/><stop offset="1" stop-color="#2DD4BF"/></linearGradient><mask id="mpM" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32"><rect width="32" height="32" fill="#fff"/><path d="M16 16.6V9.6M16 16.6l4.6-2.9" fill="none" stroke="#000" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></mask></defs><path d="M16 3.5h6.6l6.4 6.4v6.6A13 13 0 1 1 16 3.5z" fill="url(#mpG)" mask="url(#mpM)"/><path d="M22.6 3.5v4.4a2 2 0 0 0 2 2H29z" fill="#CCFBF1"/></svg>MinutePage</a>
-  <nav class="hnav" aria-label="Primary"><a href="/#capabilities">Services</a><a href="/#work">Work</a><a href="/#packages">Pricing</a><a href="/contact/">Contact</a></nav>
+  <nav class="hnav" aria-label="Primary"><a href="/#capabilities">Services</a><a href="/#work">Work</a><a href="/#packages">Pricing</a><a href="/guides/">Guides</a><a href="/contact/">Contact</a></nav>
   <a class="btn pri sm" href="/#quote">Start Project</a>
 </div></header>
 <main id="main">
 <section class="hero"><div class="wrap narrow">
-    <p class="crumbs"><a href="/">MinutePage</a> / Guides / Facebook page or website?</p>
+    <p class="crumbs"><a href="/">MinutePage</a> / <a href="/guides/">Guides</a> / Facebook page or website?</p>
     <span class="eyebrow">Guide</span>
     <h1 class="disp">Facebook page or website: <span class="g">what does your business need?</span></h1>
     <p class="lead">Many Sri Lankan businesses start with a Facebook page, and that is a sensible start. This guide explains what a page can and cannot do, and when a website starts paying for itself.</p>
@@ -211,8 +233,15 @@ summary{font-weight:500;letter-spacing:-.015em}
       <li><a href="/" lang="en">English</a> · <a href="/si/" lang="si">සිංහල</a> · <a href="/ta/" lang="ta">தமிழ்</a></li>
     </ul></div>
   </div>
-  <nav class="fm" aria-label="More from MinutePage"><a href="/small-business-website-sri-lanka/">Small business websites</a><a href="/website-redesign-sri-lanka/">Website redesign</a><a href="/hotel-website-design-sri-lanka/">Hotel &amp; villa websites</a><a href="/web-design-colombo/">Web design in Colombo</a><a href="/google-business-profile-setup-sri-lanka/">Google Maps &amp; local SEO</a><a href="/sinhala-tamil-website-design/">Sinhala &amp; Tamil websites</a><a href="/facebook-page-vs-website/">Guide: Facebook page or website?</a><a href="/how-to-choose-web-designer-sri-lanka/">Guide: choosing a web designer</a></nav>
+  <nav class="fm" aria-label="More from MinutePage"><a href="/guides/">All guides</a><a href="/small-business-website-sri-lanka/">Small business websites</a><a href="/website-redesign-sri-lanka/">Website redesign</a><a href="/hotel-website-design-sri-lanka/">Hotel &amp; villa websites</a><a href="/web-design-colombo/">Web design in Colombo</a><a href="/google-business-profile-setup-sri-lanka/">Google Maps &amp; local SEO</a><a href="/sinhala-tamil-website-design/">Sinhala &amp; Tamil websites</a><a href="/facebook-page-vs-website/">Guide: Facebook page or website?</a><a href="/how-to-choose-web-designer-sri-lanka/">Guide: choosing a web designer</a></nav>
   <div class="fb"><span>© 2026 MinutePage. Payments by bank transfer.</span><nav aria-label="Legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/refund-policy/">Refunds</a></nav></div>
 </div></footer>
+<nav class="tabbar" aria-label="Quick navigation">
+  <a href="/#top" data-tab="top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg><span>Home</span></a>
+  <a href="/#work" data-tab="work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span>Work</span></a>
+  <a href="/#quote" class="tb-main" data-tab="quote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg><span>Quote</span></a>
+  <a href="/#packages" data-tab="packages"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7-7A2 2 0 0 1 3 12.2V5a2 2 0 0 1 2-2h7.2a2 2 0 0 1 1.4.6l7 7a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg><span>Prices</span></a>
+  <a href="/#track" data-tab="track"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".8" fill="currentColor"/></svg><span>Track</span></a>
+</nav>
 </body>
 </html>
