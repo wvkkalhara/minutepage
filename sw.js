@@ -4,7 +4,7 @@
    Firebase / Google endpoints are NEVER intercepted: they always go straight to the network.
    To ship an update that every visitor gets immediately, bump VERSION. */
 
-const VERSION = "minutepage-v3.8.0";
+const VERSION = "minutepage-v5.0.0";
 const CORE = ["./", "./index.html", "./manifest.json", "./404.html", "./assets/brand/logo.svg", "./assets/brand/favicon-48.png"];
 
 // Hosts that must bypass the cache entirely (realtime data, auth, analytics, SDK modules, fonts).

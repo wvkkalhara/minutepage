@@ -1,0 +1,323 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "adminCheck": {
+      ".read": "auth != null && auth.token.email_verified === true && auth.token.email.toLowerCase() === 'w.v.k.kalhara@gmail.com'",
+      ".write": false
+    },
+    "orders": {
+      ".read": "auth != null && auth.token.email_verified === true && auth.token.email.toLowerCase() === 'w.v.k.kalhara@gmail.com'",
+      ".indexOn": [
+        "createdAt",
+        "stage"
+      ],
+      "$orderId": {
+        ".read": true,
+        ".write": "(!data.exists() && newData.hasChildren(['trackingId', 'clientName', 'whatsapp', 'packageName', 'currency', 'totalAmount', 'advanceAmount', 'stage', 'createdAt']) && newData.child('stage').val() === 1 && newData.child('advancePaid').val() === false && newData.child('finalPaid').val() === false && newData.child('stagingUrl').val() === '' && newData.child('adminNote').val() === '') || (auth != null && auth.token.email_verified === true && auth.token.email.toLowerCase() === 'w.v.k.kalhara@gmail.com')",
+        ".validate": "$orderId.matches(/^MP-[0-9]{4,8}$/) && newData.hasChildren(['trackingId', 'clientName', 'whatsapp', 'packageName', 'currency', 'totalAmount', 'advanceAmount', 'stage', 'createdAt'])",
+        "trackingId": {
+          ".validate": "newData.isString() && newData.val() === $orderId"
+        },
+        "clientName": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 100"
+        },
+        "whatsapp": {
+          ".validate": "newData.isString() && newData.val().length >= 7 && newData.val().length <= 30 && newData.val().matches(/^[0-9+() -]+$/)"
+        },
+        "packageName": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 60"
+        },
+        "addons": {
+          ".validate": "newData.isString() && newData.val().length <= 400"
+        },
+        "projectNotes": {
+          ".validate": "newData.isString() && newData.val().length <= 500"
+        },
+        "currency": {
+          ".validate": "newData.isString() && (newData.val() === 'LKR' || newData.val() === 'USD')"
+        },
+        "totalAmount": {
+          ".validate": "newData.isNumber() && newData.val() > 0 && newData.val() <= 100000000"
+        },
+        "advanceAmount": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= newData.parent().child('totalAmount').val()"
+        },
+        "stage": {
+          ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 5 && newData.val() % 1 === 0"
+        },
+        "advancePaid": {
+          ".validate": "newData.isBoolean()"
+        },
+        "finalPaid": {
+          ".validate": "newData.isBoolean()"
+        },
+        "stagingUrl": {
+          ".validate": "newData.isString() && newData.val().length <= 500 && (newData.val() === '' || newData.val().beginsWith('https://'))"
+        },
+        "adminNote": {
+          ".validate": "newData.isString() && newData.val().length <= 1000"
+        },
+        "clientNote": {
+          ".write": "data.parent().exists()",
+          ".validate": "newData.isString() && newData.val().length <= 500"
+        },
+        "createdAt": {
+          ".validate": "newData.isNumber() && (!data.exists() || newData.val() === data.val())"
+        },
+        "updatedAt": {
+          ".validate": "newData.isNumber()"
+        },
+        "promoCode": {
+          ".validate": "newData.isString() && newData.val().matches(/^[A-Z0-9-]{3,20}$/)"
+        },
+        "discountAmount": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+    "settings": {
+      ".read": true,
+      "theme": {
+        ".write": "auth != null && auth.token.email_verified === true && auth.token.email.toLowerCase() === 'w.v.k.kalhara@gmail.com'",
+        ".validate": "newData.isString() && (newData.val() === 'light' || newData.val() === 'obsidian')"
+      },
+      "$other": {
+        ".validate": false
+      }
+    },
+    "content": {
+      ".read": true,
+      "$key": {
+        ".write": "auth != null && auth.token.email_verified === true && auth.token.email.toLowerCase() === 'w.v.k.kalhara@gmail.com'",
+        ".validate": "$key.matches(/^[a-zA-Z0-9_~-]{1,200}$/) && newData.hasChildren(['k', 'o', 't'])",
+        "k": {
+          ".validate": "newData.isString() && (newData.val() === 'text' || newData.val() === 'img' || newData.val() === 'link')"
+        },
+        "h": {
+          ".validate": "newData.isString() && newData.val().length <= 6000"
+        },
+        "s": {
+          ".validate": "newData.isString() && newData.val().length <= 1000 && (newData.val().beginsWith('https://') || newData.val().beginsWith('assets/'))"
+        },
+        "o": {
+          ".validate": "newData.isString() && newData.val().length <= 6000"
+        },
+        "t": {
+          ".validate": "newData.isNumber()"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+    "prices": {
+      ".read": true,
+      ".write": "auth != null && auth.token.email_verified === true && auth.token.email.toLowerCase() === 'w.v.k.kalhara@gmail.com'",
+      "packages": {
+        "starter": {
+          ".validate": "newData.hasChildren(['lkr', 'usd'])",
+          "lkr": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+          },
+          "usd": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "business": {
+          ".validate": "newData.hasChildren(['lkr', 'usd'])",
+          "lkr": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+          },
+          "usd": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "commerce": {
+          ".validate": "newData.hasChildren(['lkr', 'usd'])",
+          "lkr": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+          },
+          "usd": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "$other": {
+          ".validate": false
+        }
+      },
+      "addons": {
+        "brand": {
+          ".validate": "newData.hasChildren(['lkr', 'usd'])",
+          "lkr": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+          },
+          "usd": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "bilingual": {
+          ".validate": "newData.hasChildren(['lkr', 'usd'])",
+          "lkr": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+          },
+          "usd": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "gbp": {
+          ".validate": "newData.hasChildren(['lkr', 'usd'])",
+          "lkr": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+          },
+          "usd": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "social": {
+          ".validate": "newData.hasChildren(['lkr', 'usd'])",
+          "lkr": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+          },
+          "usd": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "$other": {
+          ".validate": false
+        }
+      },
+      "care": {
+        ".validate": "newData.hasChildren(['lkr', 'usd'])",
+        "lkr": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+        },
+        "usd": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+        },
+        "$other": {
+          ".validate": false
+        }
+      },
+      "updatedAt": {
+        ".validate": "newData.isNumber()"
+      },
+      "$other": {
+        ".validate": false
+      }
+    },
+    "promos": {
+      ".read": "auth != null && auth.token.email_verified === true && auth.token.email.toLowerCase() === 'w.v.k.kalhara@gmail.com'",
+      "$code": {
+        ".read": true,
+        ".write": "auth != null && auth.token.email_verified === true && auth.token.email.toLowerCase() === 'w.v.k.kalhara@gmail.com'",
+        ".validate": "$code.matches(/^[A-Z0-9-]{3,20}$/) && newData.hasChildren(['type', 'active', 'createdAt'])",
+        "type": {
+          ".validate": "newData.isString() && (newData.val() === 'pct' || newData.val() === 'fixed')"
+        },
+        "pct": {
+          ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 90"
+        },
+        "lkr": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 10000000"
+        },
+        "usd": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000"
+        },
+        "active": {
+          ".validate": "newData.isBoolean()"
+        },
+        "expires": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 99999999999999"
+        },
+        "maxUses": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 1000000"
+        },
+        "uses": {
+          ".write": "data.exists() && newData.isNumber() && newData.val() === data.val() + 1 && data.parent().child('active').val() === true",
+          ".validate": "newData.isNumber() && newData.val() >= 0"
+        },
+        "note": {
+          ".validate": "newData.isString() && newData.val().length <= 100"
+        },
+        "createdAt": {
+          ".validate": "newData.isNumber()"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+    "clients": {
+      ".read": "auth != null && auth.token.email_verified === true && auth.token.email.toLowerCase() === 'w.v.k.kalhara@gmail.com'",
+      "$uid": {
+        ".read": "(auth != null && auth.uid === $uid) || (auth != null && auth.token.email_verified === true && auth.token.email.toLowerCase() === 'w.v.k.kalhara@gmail.com')",
+        ".write": "(auth != null && auth.uid === $uid) || (auth != null && auth.token.email_verified === true && auth.token.email.toLowerCase() === 'w.v.k.kalhara@gmail.com')",
+        ".validate": "newData.hasChildren(['type', 'updatedAt'])",
+        "type": {
+          ".validate": "newData.isString() && newData.val().matches(/^(shop|food|hotel|beauty|school|services|industry)$/)"
+        },
+        "url": {
+          ".validate": "newData.isString() && newData.val().length <= 300 && (newData.val() === '' || newData.val().beginsWith('https://') || newData.val().beginsWith('http://'))"
+        },
+        "businessName": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 100"
+        },
+        "name": {
+          ".validate": "newData.isString() && newData.val().length <= 100"
+        },
+        "email": {
+          ".validate": "newData.isString() && newData.val().length <= 200"
+        },
+        "whatsapp": {
+          ".validate": "newData.isString() && newData.val().length <= 30 && newData.val().matches(/^[0-9+() -]*$/)"
+        },
+        "score": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100"
+        },
+        "lcp": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 600"
+        },
+        "weightKb": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 1000000"
+        },
+        "status": {
+          ".validate": "newData.isString() && newData.val().matches(/^(new|contacted|won|lost)$/)"
+        },
+        "createdAt": {
+          ".validate": "newData.isNumber() && (!data.exists() || newData.val() === data.val())"
+        },
+        "updatedAt": {
+          ".validate": "newData.isNumber()"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    }
+  }
+}
